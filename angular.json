@@ -64,23 +64,6 @@
             "browserTarget": "client:build"
           }
         },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "client/src/test.ts",
-            "polyfills": "client/src/polyfills.ts",
-            "tsConfig": "client/src/tsconfig.spec.json",
-            "karmaConfig": "client/src/karma.conf.js",
-            "styles": [
-              "client/src/styles.css"
-            ],
-            "scripts": [],
-            "assets": [
-              "client/src/favicon.ico",
-              "client/src/assets"
-            ]
-          }
-        },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {

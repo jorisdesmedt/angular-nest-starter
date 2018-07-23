@@ -15,5 +15,6 @@ module.exports = {
       tsConfigFile: 'client/src/tsconfig.spec.json'
     },
     __TRANSFORM_HTML__: true
-  }
+  },
+  coverageDirectory: './coverage/client'
 };

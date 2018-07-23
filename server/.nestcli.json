@@ -1,4 +1,4 @@
 {
-  "language": "js",
+  "language": "ts",
   "collection": "@nestjs/schematics"
 }

@@ -1,10 +1,26 @@
-import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { DynamicModule, Module } from '@nestjs/common';
+import { ClientModule } from './client/client.module';
+import { RouterModule, Routes } from 'nest-router';
+import { ApiModule } from './api/api.module';
+
+const routes: Routes = [
+  {
+    path: '/api',
+    children: [ApiModule],
+  },
+];
 
 @Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [],
+  providers: [],
 })
-export class AppModule {}
+export class AppModule {
+  static forRoot(enableSSR): DynamicModule {
+    return {
+      module: AppModule,
+      imports: enableSSR
+        ? [RouterModule.forRoutes(routes), ClientModule, ApiModule]
+        : [RouterModule.forRoutes(routes), ApiModule],
+    };
+  }
+}

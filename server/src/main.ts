@@ -13,7 +13,7 @@ import { Stats } from 'fs';
 async function bootstrap() {
   const enableSSR = await isClientBundlesExisting();
   const app = express();
-  const server = await NestFactory.create(AppModule.forRoot(enableSSR), app);
+  const server = await NestFactory.create(AppModule, app);
 
   if (enableSSR) {
     await setUpServerSideRendering(app);
